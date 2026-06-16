@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 76.4 76.5">
+  <!-- Generator: Adobe Illustrator 29.0.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 186)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        fill: #1d1d1b;
+      }
+
+      .st2 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st0" width="76.4" height="76.5"/>
+    </clipPath>
+  </defs>
+  <g class="st2">
+    <path class="st1" d="M38.2,76.5c20.7,0,38.2-17.2,38.2-38.2S59.2,0,38.2,0,0,17.3,0,38.3s17.2,38.2,38.2,38.2"/>
+  </g>
+</svg>
