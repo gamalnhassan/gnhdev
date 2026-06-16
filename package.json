@@ -3,6 +3,7 @@
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
+	"packageManager": "yarn@1.22.22",
 	"scripts": {
 		"songs": "node scripts/resolve-songs.mjs",
 		"predev": "node scripts/resolve-songs.mjs",
