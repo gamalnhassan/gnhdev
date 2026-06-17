@@ -12,6 +12,16 @@ html {
   font-family: var(--font-sans);
 }
 
+/* Decorative hover labels/notes are absolutely positioned and intentionally
+   overflow their anchors (e.g. the long LinkedIn label). They have opacity:0
+   but still extend the document's scroll width, which on mobile shows up as a
+   wide empty gutter on the right. Clip horizontal overflow so the page is never
+   wider than the content. */
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* ---------------------------------------------------------------------------
    Shared "hover label" + org box.
    Used by the hero links/orgs and by widgets (e.g. SongWidget), so they live
