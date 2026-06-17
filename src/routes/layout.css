@@ -147,6 +147,15 @@ body {
   animation: name-pop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
+/* On small screens there isn't room to the right of the name for the 9.5rem
+   polaroid — it spills past the content edge and gets clipped. Anchor it to the
+   name's left edge instead so the whole card drops down within the viewport. */
+@media (max-width: 640px) {
+  .name-card {
+    left: 0;
+  }
+}
+
 .org-square {
   display: inline-flex;
   align-items: center;
