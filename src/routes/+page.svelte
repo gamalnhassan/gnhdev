@@ -217,13 +217,16 @@
 						bla bla bla bla bla bla bla bla bla bla bla bla bla</span
 					>
 				</a>
-				<span
-					class="social-link text-zinc-700 cursor-default inline-flex items-center justify-center w-5 h-5"
+				<a
+					href="https://substack.com/@ggnh"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="social-link hover:text-white transition-colors inline-flex items-center justify-center w-5 h-5"
 					aria-label="Substack"
 				>
 					<Icon icon="simple-icons:substack" width="17" height="17" />
 					<span class="social-label">Maybe soon...</span>
-				</span>
+				</a>
 			</nav>
 		</div>
 
