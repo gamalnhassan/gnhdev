@@ -6,6 +6,11 @@
   --font-sans: 'Epilogue', ui-sans-serif, system-ui, sans-serif;
 }
 
+:root {
+  /* a softer, less saturated take on the tesseract cyan — the page's accent color */
+  --accent: #79aebd;
+}
+
 /* Match the page background so overscroll/rubber-band doesn't reveal white. */
 html {
   background-color: #0a0a0a;

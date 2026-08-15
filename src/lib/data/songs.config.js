@@ -11,6 +11,7 @@
  * @type {{ id: string; label: string }[]}
  */
 export const songsConfig = [
+  // (Everything I Do) I Do It For You - Bryan Adams 
   { id: '6eBK3edMW7bEzecF1eCezc', label: 'Currently stuck in my head' },
   // Through The Wire — Kanye West 
   { id: '4mmkhcEm1Ljy1U9nwtsxUo', label: 'Classic' },

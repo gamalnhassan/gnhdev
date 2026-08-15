@@ -7,6 +7,14 @@ export interface DraggableOptions {
 	ignore?: string;
 	/** viewport clamp margin in px */
 	margin?: number;
+	/** bring the element to the front when grabbed (default true) */
+	raise?: boolean;
+	/**
+	 * Start already floating at this page position (page coordinates, incl.
+	 * scroll) instead of in normal flow. Use for elements that are spawned at an
+	 * arbitrary spot rather than docked in the layout — no flow spacer is made.
+	 */
+	initial?: { x: number; y: number };
 }
 
 /**
@@ -60,7 +68,7 @@ export function draggable(node: HTMLElement, options: DraggableOptions = {}) {
 		if (opts.ignore && (e.target as HTMLElement).closest(opts.ignore)) return;
 		dragging = true;
 		// bring the just-grabbed widget above all the others
-		node.style.zIndex = `${++topZ}`;
+		if (opts.raise !== false) node.style.zIndex = `${++topZ}`;
 		// first drag: pop out of flow, reserving the gap it leaves behind
 		if (pos === null) {
 			const rect = node.getBoundingClientRect();
@@ -98,6 +106,11 @@ export function draggable(node: HTMLElement, options: DraggableOptions = {}) {
 	}
 
 	node.style.touchAction = 'none';
+	// Spawned-at-a-point elements start floating immediately (no flow spacer).
+	if (opts.initial) {
+		pos = { ...opts.initial };
+		apply();
+	}
 	node.addEventListener('pointerdown', onPointerDown);
 	node.addEventListener('pointermove', onPointerMove);
 	node.addEventListener('pointerup', onPointerUp);
