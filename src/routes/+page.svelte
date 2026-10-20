@@ -5,6 +5,8 @@
 	import SongWidget from '$lib/components/SongWidget.svelte';
 	import Tesseract from '$lib/components/Tesseract.svelte';
 	import Arrow from '$lib/components/Arrow.svelte';
+	import ProjectCard from '$lib/components/projects/ProjectCard.svelte';
+	import { projects } from '$lib/data/projects';
 	import { draggable } from '$lib/actions/draggable';
 	import { tap } from '$lib/actions/tap';
 	import type { Song } from '$lib/types';
@@ -260,8 +262,32 @@
 		<!-- Projects -->
 		<section class="space-y-4">
 			<h2 class="text-xs uppercase tracking-widest text-zinc-600 font-medium">Projects</h2>
-			<div class="space-y-3">
-				<p class="text-zinc-600 text-sm italic">Coming soon.</p>
+			<!-- a scattered desk of little working toys — each card is draggable too -->
+			<div class="relative">
+				<div class="projects-note hover-accent" aria-hidden="true">
+					<Arrow
+						class="projects-note-arrow"
+						viewBox="0 0 100 90"
+						seed={11}
+						scale={3}
+						paths={[
+							// shaft with a little loop-de-loop, swooping left onto the cards
+							'M94 40 C 80 20, 56 14, 50 30 C 44 46, 64 52, 66 40 C 68 28, 42 22, 28 38 C 22 45, 16 52, 10 56',
+							// arrowhead at the tip
+							'M10 56 L 25 55',
+							'M10 56 L 17 43'
+						]}
+					/>
+					<span class="projects-note-text">stuff i built<br />(go on, play<br />with it)</span>
+				</div>
+
+				<div
+					class="grid grid-cols-1 items-start gap-x-10 gap-y-10 pt-2 pb-8 min-[721px]:grid-cols-2"
+				>
+					{#each projects as project (project.title)}
+						<ProjectCard {project} />
+					{/each}
+				</div>
 			</div>
 		</section>
 
@@ -400,6 +426,44 @@
 	/* not enough room beside the widgets on small screens — hide it */
 	@media (max-width: 900px) {
 		.songs-note {
+			display: none;
+		}
+	}
+
+	/* scribbled note in the right margin beside the project desk (the songs
+	   note sits on the left, so this balances it out), pointing in */
+	.projects-note {
+		position: absolute;
+		top: 4rem;
+		right: -1rem;
+		transform: translateX(100%) rotate(4deg);
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+		color: #b9b6b0;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.projects-note-text {
+		font-family: 'Shadows Into Light', ui-sans-serif, cursive;
+		font-size: 1.25rem;
+		line-height: 1.05;
+		text-align: left;
+		white-space: nowrap;
+		text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+		pointer-events: auto;
+		cursor: default;
+	}
+
+	.projects-note :global(.projects-note-arrow) {
+		flex-shrink: 0;
+		width: 92px;
+		height: 82px;
+	}
+
+	@media (max-width: 900px) {
+		.projects-note {
 			display: none;
 		}
 	}

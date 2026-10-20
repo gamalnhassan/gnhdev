@@ -83,7 +83,13 @@ export function draggable(node: HTMLElement, options: DraggableOptions = {}) {
 			spacer.style.marginBottom = cs.marginBottom;
 			spacer.style.marginLeft = cs.marginLeft;
 			spacer.style.marginRight = cs.marginRight;
+			// in a grid, hold the same cell so the other items don't get re-placed
+			spacer.style.gridColumn = `${cs.gridColumnStart} / ${cs.gridColumnEnd}`;
+			spacer.style.gridRow = `${cs.gridRowStart} / ${cs.gridRowEnd}`;
+			spacer.style.justifySelf = cs.justifySelf;
 			node.parentElement?.insertBefore(spacer, node);
+			// the spacer now owns the margins; left on the node they'd shift it off `pos`
+			node.style.margin = '0';
 			pos = { x: rect.left + window.scrollX, y: rect.top + window.scrollY };
 			apply();
 		}
