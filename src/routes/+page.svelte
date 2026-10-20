@@ -7,6 +7,8 @@
 	import Arrow from '$lib/components/Arrow.svelte';
 	import ProjectCard from '$lib/components/projects/ProjectCard.svelte';
 	import { projects } from '$lib/data/projects';
+	import FutureCard from '$lib/components/future/FutureCard.svelte';
+	import { future } from '$lib/data/future';
 	import { draggable } from '$lib/actions/draggable';
 	import { tap } from '$lib/actions/tap';
 	import type { Song } from '$lib/types';
@@ -291,15 +293,20 @@
 			</div>
 		</section>
 
-		<!-- Blog -->
-		<section class="space-y-4">
-			<h2 class="text-xs uppercase tracking-widest text-zinc-600 font-medium">Blog</h2>
-			<p class="text-zinc-600 text-sm italic">Coming soon.</p>
-		</section>
-
 		<!-- Future -->
 		<section class="space-y-4">
 			<h2 class="text-xs uppercase tracking-widest text-zinc-600 font-medium">Future</h2>
+			<!-- full-width cards, one per idea, each with its own toy -->
+			<div class="space-y-6">
+				{#each future as item (item.title)}
+					<FutureCard {item} />
+				{/each}
+			</div>
+		</section>
+
+		<!-- Blog -->
+		<section class="space-y-4">
+			<h2 class="text-xs uppercase tracking-widest text-zinc-600 font-medium">Blog</h2>
 			<p class="text-zinc-600 text-sm italic">Coming soon.</p>
 		</section>
 	</div>
