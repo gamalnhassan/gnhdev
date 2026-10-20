@@ -21,6 +21,24 @@ export interface Project {
 	place: { column: string; top: number; left: number; justify: 'start' | 'end' };
 }
 
+export interface FutureProject {
+	title: string;
+	/** optional small line under the title */
+	subtitle?: string;
+	/** topics, shown under the title like a project's stack */
+	tags: string[];
+	/** plain-text paragraphs */
+	description: string[];
+	/** the pop-up hint shown above the card on hover */
+	label: string;
+	/** the interactive toy parked in the card's bottom-right corner */
+	toy: Component;
+	/** optional scenery painted into the card behind the text (fills the card) */
+	backdrop?: Component;
+	/** resting tilt in degrees (kept small — these cards span the full width) */
+	tilt: number;
+}
+
 export interface Song {
 	title: string;
 	artist: string;
