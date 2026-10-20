@@ -54,7 +54,7 @@
 </script>
 
 <div class="paper">
-	<div class="flex items-baseline justify-between border-b border-white pb-1">
+	<div class="flex items-baseline justify-between border-b border-current pb-1">
 		<span class="font-semibold">Evaluation</span>
 		<span class="tabular-nums">Ø {avg.toFixed(2)}</span>
 	</div>
@@ -117,11 +117,8 @@
 </div>
 
 <style>
-	/* drawn straight onto the card, all in white */
+	/* drawn straight onto the paper, all in its ink colour */
 	.paper {
-		padding: 0.6rem 0.65rem 0.55rem;
-		border-radius: 0.5rem;
-		color: white;
 		font-size: 0.75rem;
 		line-height: 1.2;
 		cursor: default;
@@ -137,7 +134,7 @@
 
 	.grid-line {
 		fill: none;
-		stroke: rgba(255, 255, 255, 0.35);
+		stroke: color-mix(in srgb, currentColor 35%, transparent);
 		stroke-width: 0.5;
 		stroke-dasharray: 1.5 1.5;
 	}
@@ -146,20 +143,20 @@
 		font-size: 13px;
 		text-anchor: middle;
 		dominant-baseline: central;
-		fill: white;
+		fill: currentColor;
 		user-select: none;
 	}
 
 	.shape {
-		fill: rgba(255, 255, 255, 0.15);
-		stroke: white;
+		fill: color-mix(in srgb, currentColor 15%, transparent);
+		stroke: currentColor;
 		stroke-width: 1;
 		stroke-linejoin: round;
 		transition: all 0.2s ease;
 	}
 
 	.vertex {
-		fill: white;
+		fill: currentColor;
 	}
 
 	.row {
@@ -175,16 +172,16 @@
 		width: 0.65rem;
 		height: 0.65rem;
 		border-radius: 9999px;
-		border: 1px solid white;
+		border: 1px solid currentColor;
 		transition: background-color 0.15s;
 	}
 
 	.dot:hover {
-		background: rgba(255, 255, 255, 0.25);
+		background: color-mix(in srgb, currentColor 25%, transparent);
 	}
 
 	.dot.on {
-		background: white;
+		background: currentColor;
 	}
 
 	@media (prefers-reduced-motion: reduce) {

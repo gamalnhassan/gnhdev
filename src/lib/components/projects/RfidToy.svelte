@@ -104,7 +104,7 @@
 </script>
 
 <div class="space-y-2">
-	<div class="relative flex h-32 items-center justify-around rounded-lg bg-[#0a0a0a] px-3">
+	<div class="relative flex items-center justify-between gap-4 py-1.5 pl-1">
 		<!-- the student card -->
 		<button
 			type="button"

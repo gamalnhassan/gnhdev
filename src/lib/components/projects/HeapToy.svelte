@@ -168,7 +168,7 @@
 			</span>
 		</button>
 		<button type="button" class="chip" onclick={call}>call</button>
-		<span class="ml-auto text-zinc-500">{used}/{MAX}B used</span>
+		<span class="ml-auto opacity-60">{used}/{MAX}B used</span>
 	</div>
 </div>
 
@@ -179,8 +179,7 @@
 		gap: 2px;
 		padding: 2px;
 		border-radius: 0.5rem;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background: #0a0a0a;
+		border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
 		cursor: default;
 	}
 
@@ -195,7 +194,7 @@
 		background: repeating-linear-gradient(
 			-45deg,
 			transparent 0 3px,
-			rgba(255, 255, 255, 0.06) 3px 4px
+			color-mix(in srgb, currentColor 14%, transparent) 3px 4px
 		);
 	}
 
@@ -242,8 +241,7 @@
 	.chip {
 		padding: 0.25rem 0.4rem;
 		border-radius: 0.375rem;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		color: #d4d4d8;
+		border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
 		transition:
 			border-color 0.15s,
 			color 0.15s;
@@ -306,7 +304,7 @@
 		display: inline-block;
 		min-width: 3ch;
 		text-align: center;
-		color: white;
+		font-weight: 600;
 		border-bottom: 1px dashed currentColor;
 	}
 

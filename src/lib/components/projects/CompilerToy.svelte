@@ -60,14 +60,14 @@
 </script>
 
 <div class="space-y-2 font-mono text-[0.62rem]">
-	<div class="flex items-center gap-1 text-zinc-500">
+	<div class="flex items-center gap-1">
 		{#each STAGES as s, i (s.name)}
-			{#if i > 0}<span aria-hidden="true">→</span>{/if}
+			{#if i > 0}<span class="opacity-50" aria-hidden="true">→</span>{/if}
 			<button
 				type="button"
 				class="rounded px-1.5 py-0.5 transition-colors {stage === i
-					? 'bg-white/10 text-white'
-					: 'hover:text-zinc-300'}"
+					? 'bg-current/10 font-semibold'
+					: 'opacity-60 hover:opacity-100'}"
 				aria-pressed={stage === i}
 				onclick={() => (stage = i)}>{s.name}</button
 			>

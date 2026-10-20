@@ -4,39 +4,22 @@ export interface Project {
 	title: string;
 	/** optional small line under the title */
 	subtitle?: string;
-	/** languages / hardware, shown as chips under the title */
+	/** languages / hardware (or topics, for future ones), shown under the title */
 	stack: string[];
-	/** plain-text paragraphs shown under the toy (and readable without JS) */
+	/** plain-text paragraphs (readable without JS) */
 	description: string[];
-	/** the pop-up hint shown above the card on hover */
-	label: string;
-	/** the interactive toy rendered inside the card */
+	/** the interactive toy shown beside the text */
 	toy: Component;
-	/** resting tilt in degrees */
-	tilt: number;
-	/**
-	 * Where the card starts on the desk (a 2-column grid, all cards in one row so
-	 * they can overlap). On narrow screens cards just stack instead.
-	 */
-	place: { column: string; top: number; left: number; justify: 'start' | 'end' };
-}
-
-export interface FutureProject {
-	title: string;
-	/** optional small line under the title */
-	subtitle?: string;
-	/** topics, shown under the title like a project's stack */
-	tags: string[];
-	/** plain-text paragraphs */
-	description: string[];
-	/** the pop-up hint shown above the card on hover */
-	label: string;
-	/** the interactive toy parked in the card's bottom-right corner */
-	toy: Component;
-	/** optional scenery painted into the card behind the text (fills the card) */
-	backdrop?: Component;
-	/** resting tilt in degrees (kept small — these cards span the full width) */
-	tilt: number;
+	/** how wide the toy is (default 18.25rem) */
+	toyWidth?: string;
+	/** how far below the title line the toy sits, in the margin */
+	toyDrop?: string;
+	/** extra space between the toy and its arrow */
+	toyGap?: string;
+	/** keep the toy in place (it can't be picked up and dragged) */
+	fixed?: boolean;
+	/** start the arrow lower down, for a toy whose body sits below the title line */
+	arrowLow?: boolean;
 }
 
 export interface Song {
